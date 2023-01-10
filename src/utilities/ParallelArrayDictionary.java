@@ -13,7 +13,14 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	public ParallelArrayDictionary()
 	{
-		// TODO Auto-generated constructor stub
+		_keys = new ArraySet<Key>();
+		_values = new ArrayList<Value>();
+	}
+	
+	public ParallelArrayDictionary(ArraySet<Key> keys2, ArrayList<Value> values2)
+	{
+		_keys = keys2;
+		_values = values2;
 	}
 
 	@Override
@@ -44,44 +51,51 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Value put(Key key, Value value) {
-		// TODO Auto-generated method stub
-		return null;
+		_keys.add(key);
+		_values.add(value);
+		return value;
 	}
 
 	@Override
 	public Value remove(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		int index = _keys.indexOf(key);
+		_keys.remove(index);
+		Value val = _values.get(index);
+		_values.remove(index);
+		return val;
 	}
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
 		// TODO Auto-generated method stub
-		
+		// !!!!!!!!!!!!
+		for (Entry<? extends Key, ? extends Value> e: m.entrySet()) {
+			put(e.getKey(), e.getValue());
+		}
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_keys.clear();
+		_values.clear();
 	}
 
 	@Override
 	public Set<Key> keySet() {
-		// TODO Auto-generated method stub
-		return null;
+		return _keys;
 	}
 
 	@Override
 	public Collection<Value> values() {
-		// TODO Auto-generated method stub
-		return null;
+		return _values;
 	}
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		return Entry<_keys, _values>();
 	}
 
 }
