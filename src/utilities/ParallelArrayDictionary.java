@@ -67,8 +67,6 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
-		// !!!!!!!!!!!!
 		for (Entry<? extends Key, ? extends Value> e: m.entrySet()) {
 			put(e.getKey(), e.getValue());
 		}
@@ -92,11 +90,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		ArraySet<Entry<Key, Value>> list = new ArraySet(_keys, _values);
-		
-		
-		
-		return Entry<_keys, _values>();
+		return entrySet();
 	}
 
 }
