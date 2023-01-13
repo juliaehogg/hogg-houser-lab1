@@ -92,7 +92,8 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
+		ArraySet<Entry<Key, Value>> list = new ArraySet(_keys, _values);
+		
 		
 		
 		return Entry<_keys, _values>();
