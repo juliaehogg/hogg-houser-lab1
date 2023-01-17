@@ -435,11 +435,60 @@ class ArraySetTest
 	@Test
 	void testArraySet_get()
 	{
+		// integer test
+		ArraySet<Integer> testI = new ArraySet<Integer>();
+		
+		// populate array
+		for (int i = 0; i < 15; i++)
+		{
+			testI.add(i);
+		}
+		
+		// check valid values
+		int a = testI.get(0);
+		int b = 0;
+		assertEquals(a, b);
+		
+		a = testI.get(4);
+		b = 4;
+		assertEquals(a, b);
+		
+		a = testI.get(8);
+		b = 8;
+		assertEquals(a, b);
+		
+		// check invalid values - out of bounds
+		a = testI.get(67);
+		b = -1;
+		assertEquals(a, b);
+		
+		a = testI.get(-2);
+		b = -1;
+		assertEquals(a, b);
+		
+		// check zero 
+		a = testI.get(0);
+		b = -1;
+		assertEquals(a, b);
+		
+		
+		
+		// double test
+		ArraySet<Double> testD = new ArraySet<Double>();
+		
+		// populate area
+		for (double j = 0.1; j < 15.1; j++)
+		{
+			testD.add(j);
+		}
+		
+		
 	}
 	
 	@Test
 	void testArraySet_set()
 	{
+		
 	}
 	
 	@Test
@@ -461,12 +510,6 @@ class ArraySetTest
 	void testArraySet_spliterator()
 	{
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
