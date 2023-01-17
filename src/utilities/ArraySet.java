@@ -17,7 +17,7 @@ protected ArrayList<E> _list;
 		_list = new ArrayList<E>(); 
 	}
 	
-	public ArraySet (ArrayList<E> list2)
+	public ArraySet(ArrayList<E> list2)
 	{
 		_list = list2;
 	}
@@ -45,7 +45,6 @@ protected ArrayList<E> _list;
 	}
 	@Override
 	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
 		return _list.toArray(a);
 	}
 	@Override
@@ -63,11 +62,27 @@ protected ArrayList<E> _list;
 	}
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		return _list.addAll(c);
+		
+		if (c.isEmpty()) return false;
+		if (_list.containsAll(c)) return false;
+		
+		for (E element : c) {
+			_list.add(element);
+		}
+		return true;
 	}
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
-		return _list.addAll(index, c);
+		
+		if (c.isEmpty()) return false;
+		if (_list.containsAll(c)) return false;
+		
+		int i = index;
+		for (E element : c) {
+			_list.add(index + i, element);
+			i++;
+		}
+		return true;
 	}
 	@Override
 	public boolean removeAll(Collection<?> c) {
