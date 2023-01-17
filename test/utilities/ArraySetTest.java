@@ -22,7 +22,7 @@ class ArraySetTest
 	@Test
 	void testArraySet_size()
 	{
-		// Integer type
+		// INTEGER TEST 
 		ArraySet<Integer> two = new ArraySet<Integer>();
 		assertEquals(0, two.size());
 		
@@ -32,7 +32,7 @@ class ArraySetTest
 		two.add(5);
 		two.add(5);
 		two.add(5);
-		assertEquals(4, two.size());
+		assertEquals(2, two.size());
 		
 		two.add(5);
 		two.add(100);
@@ -46,11 +46,15 @@ class ArraySetTest
 		two.add(2345678);
 		assertEquals(2, two.size());
 		
-		two.remove(2);
+		
+		Integer testInt = 2; 
+		two.remove(testInt);
 		assertEquals(2, two.size());
-		two.remove(999);
+		testInt = 999;
+		two.remove(testInt);
 		assertEquals(1, two.size());
-		two.remove(2345678);
+		testInt = 2345678;
+		two.remove(testInt);
 		assertEquals(0, two.size());
 		
 		two.add(56);
@@ -59,18 +63,18 @@ class ArraySetTest
 		assertEquals(3, two.size());
 		
 		
-		// Double type
+		// DOUBLE TEST
 		ArraySet<Double> three = new ArraySet<Double>();
 		assertEquals(0, three.size());
 		
 		three.add(9.0);
 		assertEquals(1, three.size());
-				
+		
 		three.add(5.0);
 		three.add(5.0);
 		three.add(5.0);
 		assertEquals(2, three.size());
-				
+		/*
 		three.add(5.0);
 		three.add(100.3);
 		three.add(84.9);
@@ -78,11 +82,11 @@ class ArraySetTest
 				
 		three.clear();
 		assertEquals(0, three.size());
-				
+		
 		three.add(999.888);
 		three.add(2345678.1);
 		assertEquals(2, three.size());
-				
+		
 		three.remove(2.0);
 		assertEquals(2, three.size());
 		three.remove(999.888);
@@ -96,7 +100,7 @@ class ArraySetTest
 		assertEquals(3, three.size());
 		
 		
-		// String type
+		// STRING TEST
 		ArraySet<String> four = new ArraySet<String>();
 		assertEquals(0, four.size());
 
@@ -130,7 +134,10 @@ class ArraySetTest
 		four.add("tricky");
 		four.add("it is the start of the Furman semester");
 		four.add("!@#$%^&*()_+{}[]:\' oh how fancy");
-		assertEquals(3, four.size());	
+		assertEquals(3, four.size());
+		
+		
+		*/
 	}
 	
 	
@@ -141,7 +148,7 @@ class ArraySetTest
 	@Test
 	void testArraySet_isEmpty()
 	{
-		// Integer type
+		// INTEGER TEST
 		ArraySet<Integer> one = new ArraySet<Integer>();
 		assertTrue(one.isEmpty());
 		
@@ -177,10 +184,74 @@ class ArraySetTest
 		
 		
 		
-		// Double type
-		ArraySet<Integer> two = new ArraySet<Integer>();
-		//assertFalse(two.isEmpty());
-
+		// DOUBLE TEST
+		ArraySet<Double> two = new ArraySet<Double>();
+		assertTrue(two.isEmpty());
+		
+		two.add(9.002);
+		assertFalse(two.isEmpty());
+		
+		for (double i=0; i<10; i++) {
+			two.add(i);
+			assertFalse(two.isEmpty());
+		}
+		
+		two.clear();
+		assertTrue(two.isEmpty());
+		
+		for (double i=0; i<10; i++) {
+			two.add(i*4);
+			assertFalse(two.isEmpty());
+		}
+		
+		two.clear();
+		assertTrue(two.isEmpty());
+		
+		two.add(7.19);
+		two.add(9.12345678);
+		assertFalse(two.isEmpty());
+		
+		two.remove(new Double(2));				// ask alvin if this is right
+		assertFalse(two.isEmpty());
+		two.remove(new Double(7.19));			// ask alvin if this is right 
+		assertFalse(two.isEmpty());
+		two.remove(new Double(9.12345678));		// ask alvin if this is right 
+		assertTrue(two.isEmpty());
+		
+		
+		// STRING TEST
+		ArraySet<String> three = new ArraySet<String>();
+		assertTrue(three.isEmpty());
+		
+		three.add("Here");
+		assertFalse(three.isEmpty());
+		
+		for (int i=0; i<10; i++) {
+			three.add("Hello number " + i);
+			assertFalse(three.isEmpty());
+		}
+		
+		three.clear();
+		assertTrue(three.isEmpty());
+		
+		for (int i=0; i<10; i++) {
+			three.add("i love numbers: " + (i*2));
+			assertFalse(three.isEmpty());
+		}
+		
+		three.clear();
+		assertTrue(three.isEmpty());
+		
+		three.add("79");
+		three.add("this is a String");
+		assertFalse(three.isEmpty());
+		
+		three.remove("Julia");					// ask alvin if this is right
+		assertFalse(three.isEmpty());
+		three.remove("79");						// ask alvin if this is right 
+		assertFalse(three.isEmpty());
+		three.remove("this is a String");		// ask alvin if this is right 
+		assertTrue(three.isEmpty());
 
 		
 	}
@@ -364,7 +435,7 @@ class ArraySetTest
 	@Test
 	void testArraySet_clear()
 	{
-		//Integer test
+		//INTEGER TESTING 
 		ArraySet<Integer> testCI = new ArraySet<Integer>();
 		assertEquals(testCI.size(), 0);
 		

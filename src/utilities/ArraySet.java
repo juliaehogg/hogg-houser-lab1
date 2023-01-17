@@ -50,6 +50,7 @@ protected ArrayList<E> _list;
 	}
 	@Override
 	public boolean add(E e) {
+		if (_list.contains(e)) return false;
 		return _list.add(e);
 	}
 	@Override
@@ -90,6 +91,7 @@ protected ArrayList<E> _list;
 	}
 	@Override
 	public void add(int index, E element) {
+		if (_list.contains(element))	remove(element);
 		_list.add(index, element);
 	}
 	@Override
