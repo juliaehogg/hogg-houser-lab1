@@ -364,6 +364,72 @@ class ArraySetTest
 	@Test
 	void testArraySet_clear()
 	{
+		//Integer test
+		ArraySet<Integer> testCI = new ArraySet<Integer>();
+		assertEquals(testCI.size(), 0);
+		
+		for (int i = 0; i < 10; i++)
+		{
+			testCI.add(i);
+		}
+		
+		// add a bunch and make sure it isn't empty
+		assertFalse(testCI.isEmpty());
+		
+		
+		// clear and make sure it's empty
+		testCI.clear();	
+		assertTrue(testCI.isEmpty());
+		assertEquals(testCI.size(), 0);
+		
+		// add one and make sure it isn't empty
+		testCI.add(1);
+		assertFalse(testCI.isEmpty());
+		
+		
+		// double test
+		ArraySet<Double> testCD = new ArraySet<Double>();
+		assertTrue(testCD.isEmpty());
+		assertEquals(testCD.size(), 0);
+		
+		for (double d = 0.0; d < 15; d++)
+		{
+			testCD.add(d);
+		}
+		
+		// add a bunch and make sure it isn't empty
+		assertFalse(testCD.isEmpty());
+		
+		// clear and make sure it's empty
+		testCD.clear();
+		assertTrue(testCD.isEmpty());
+		assertEquals(testCD.size(), 0);
+		
+		// add one and make sure it isn't empty
+		testCD.add(1.1);
+		assertFalse(testCD.isEmpty());
+		
+		
+		// string test
+		ArraySet<String> testCS = new ArraySet<String>();
+		assertTrue(testCS.isEmpty());
+		assertEquals(testCS.size(), 0);
+		
+		
+		// add and make sure it isnt empty
+		testCS.add("Hello");
+		testCS.add("Goodbye");
+		assertFalse(testCS.isEmpty());
+		
+		// clear and make sure its empty
+		testCS.clear();
+		assertTrue(testCS.isEmpty());
+		assertEquals(testCS.size(), 0);
+		
+		// add one and make sure it isn't empty
+		testCS.add("Julia");
+		assertFalse(testCS.isEmpty());
+		
 	}
 	
 	@Test
