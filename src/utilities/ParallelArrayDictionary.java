@@ -1,9 +1,15 @@
 package utilities;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+
+import org.junit.jupiter.api.Test;
 
 public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 {
@@ -67,7 +73,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		for (Entry<? extends Key, ? extends Value> e: m.entrySet()) {
+		for (Entry<? extends Key, ? extends Value> e: m.entrySet()) { 
 			put(e.getKey(), e.getValue());
 		}
 	}

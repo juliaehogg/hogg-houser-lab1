@@ -1,5 +1,7 @@
 package utilities;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
@@ -7,6 +9,7 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testParallelArrayDictionary()
 	{
+		assertTrue(1==2);
 	}
 
 	@Test

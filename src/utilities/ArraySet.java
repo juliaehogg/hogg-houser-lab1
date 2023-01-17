@@ -12,12 +12,12 @@ public class ArraySet<E> implements List<E>, Set <E>
 {
 protected ArrayList<E> _list;
 
-	public void ArrayList()
+	public ArraySet()
 	{
-		_list = new ArrayList<E>();
+		_list = new ArrayList<E>(); 
 	}
 	
-	public void ArrayList (ArrayList<E> list2)
+	public ArraySet (ArrayList<E> list2)
 	{
 		_list = list2;
 	}
