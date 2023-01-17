@@ -1,39 +1,83 @@
 package utilities;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
 {
+	
+	
 	@Test
-	void testParallelArrayDictionary()
+	void testParallelArrayDictionary_construction()
 	{
-		assertTrue(1==2);
+		// here 
 	}
+	
+	
+	@Test
+	void ParallelArrayDictionary_get()
+	{
+		// here 
+	}
+	
+	
+	@Test
+	void ParallelArrayDictionary_put()
+	{
+		// here 
+	}
+	
+	
+	@Test
+	void ParallelArrayDictionary_remove()
+	{
+		// here 
+	}
+	
+	@Test
+	void ParallelArrayDictionary_putAll()
+	{
+		// here 
+	}
+	
+	
+	@Test
+	void ParallelArrayDictionary_clear()
+	{
+		// here 
+	}
+	
+	
+	@Test
+	void ParallelArrayDictionary_keySet()
+	{
+		// here 
+	}
+	
+	@Test
+	void ParallelArrayDictionary_values()
+	{
+		// here 
+	}
+	
 
-	@Test
-	void testGet()
-	{
-	}
-
-	@Test
-	void testPut()
-	{
-	}
-
-	@Test
-	void testRemove()
-	{
-	}
-
-	@Test
-	void testPutAll()
-	{
-	}
-
-	@Test
-	void testClear()
-	{
-	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
