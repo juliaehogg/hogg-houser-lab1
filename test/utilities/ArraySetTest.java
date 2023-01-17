@@ -187,18 +187,110 @@ class ArraySetTest
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Test
 	void testArraySet_contains()
 	{
+		//Integer type
+		ArraySet<Integer> test = new ArraySet<Integer>();
+		assertFalse(test.contains(1));
+		
+		for (int i = 0; i <15; i++)
+		{
+			test.add(i);
+		}
+		
+		// add & make sure it's there
+		assertTrue(test.contains(4));
+		assertTrue(test.contains(9));
+		assertTrue(test.contains(2));
+		
+		//outside of range
+		assertFalse(test.contains(17));
+		assertFalse(test.contains(-4));
+		
+		//zero and null
+		assertTrue(test.contains(0));
+		assertFalse(test.contains(null));
+		
+		//remove & make sure it removes
+		test.remove(4);
+		assertFalse(test.contains(4));
+		
+		// clear and make sure it contains nothing
+		test.clear();
+		assertFalse(test.contains(5));
+		
+		
+		// Double type
+		ArraySet<Double> test2 = new ArraySet<Double>();
+		assertFalse(test.contains(1.0));
+		
+		for (double d = 0.0; d < 15; d++)
+		{
+			test2.add(d);
+		}
+		
+		// add and make sure it's there
+		assertTrue(test2.contains(4.0));
+		assertTrue(test2.contains(9.0));
+		assertTrue(test2.contains(11.0));
+		
+		// add specific double and check
+		test2.add(19.2);
+		assertTrue(test2.contains(19.2));
+		
+		//outside of range
+		assertFalse(test2.contains(4002.4));
+		assertFalse(test2.contains(-9.2));
+		
+		//zero and null
+		assertTrue(test2.contains(0.0));
+		assertFalse(test2.contains(null));
+		
+		// remove and make sure it removes
+		test2.remove(5.0);
+		assertFalse(test2.contains(5.0));
+		
+		// clear and make sure it contains nothing
+		test2.clear();
+		assertFalse(test2.contains(3.2));
+		
+		
+		
+		//String type
+		ArraySet<String> test3 = new ArraySet<String>();
+		assertFalse(test3.contains("hello"));
+		
+		test3.add("giraffe");
+		test3.add("monkey");
+		test3.add("chimp");
+		test3.add("fish");
+		
+		
+		// and and check same word w one letter altered
+		test3.add("elephant");
+		assertTrue(test3.contains("elephant"));
+		assertFalse(test3.contains("elephants"));
+		
+		// check what was added
+		assertTrue(test3.contains("monkey"));
+		assertFalse(test3.contains("himp"));
+		
+		// remove and make sure it doesn't contain it
+		test3.remove("elephant");
+		assertFalse(test3.contains("elephant"));
+		
+		// check words not there
+		assertFalse(test3.contains("yellow"));
+		String b = "";
+		assertFalse(test3.contains(b));
+		
+		//clear and make sure it contains nothing
+		test3.clear();
+		assertFalse(test3.contains("monkey"));
+		assertFalse(test3.contains("hello"));
+		
+
 	}
 	
 	@Test
@@ -214,6 +306,34 @@ class ArraySetTest
 	@Test
 	void testArraySet_add()
 	{
+		//Integer type
+		ArraySet<Integer> test = new ArraySet<Integer>();
+		assertFalse(test.contains(1));
+				
+		
+		for (int i = 0; i < 20; i++)
+		{
+			test.add(i);
+		}
+		
+		// add and make sure it added
+		assertTrue(test.contains(2));
+		assertTrue(test.contains(4));
+		assertTrue(test.contains(17));
+		
+		// values not added, not in range
+		assertFalse(test.contains(-4));
+		assertFalse(test.contains(59));
+		
+		// zero and null
+		assertTrue(test.contains(0));
+		assertFalse(test.contains(null));
+		
+		// remove and check
+		test.remove(6);
+		assertFalse(test.contains(6));
+		
+		
 	}
 	
 	@Test
