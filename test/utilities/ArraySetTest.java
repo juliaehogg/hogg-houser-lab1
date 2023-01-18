@@ -16,6 +16,8 @@ class ArraySetTest
 		ArraySet<Integer> two = new ArraySet<Integer>();
 		assertEquals(0, two.size());
 		
+		
+		// add values and check size
 		two.add(9);
 		assertEquals(1, two.size());
 		
@@ -29,14 +31,17 @@ class ArraySetTest
 		two.add(84);
 		assertEquals(4, two.size());
 		
+		// clear and check size
 		two.clear();
 		assertEquals(0, two.size());
 		
+		
+		// add values and check size
 		two.add(999);
 		two.add(2345678);
 		assertEquals(2, two.size());
 		
-		
+		// add and remove and check size
 		Integer testInt = 2; 
 		two.remove(testInt);
 		assertEquals(2, two.size());
@@ -57,6 +62,7 @@ class ArraySetTest
 		ArraySet<Double> three = new ArraySet<Double>();
 		assertEquals(0, three.size());
 		
+		// add values and check size
 		three.add(9.0);
 		assertEquals(1, three.size());
 		
@@ -69,14 +75,17 @@ class ArraySetTest
 		three.add(100.3);
 		three.add(84.9);
 		assertEquals(4, three.size());
-				
+		
+		// clear and check size
 		three.clear();
 		assertEquals(0, three.size());
 		
+		// add values and check size
 		three.add(999.888);
 		three.add(2345678.1);
 		assertEquals(2, three.size());
 		
+		// add and remove and check size
 		three.remove(2.0);
 		assertEquals(2, three.size());
 		three.remove(999.888);
@@ -165,7 +174,7 @@ class ArraySetTest
 		ArraySet<Integer> test = new ArraySet<Integer>();
 		assertFalse(test.contains(1));
 				
-		// populate array
+		// populate array with values 0-19
 		for (int i = 0; i < 20; i++)
 		{
 			test.add(i, i);
@@ -321,10 +330,140 @@ class ArraySetTest
 	
 	@Test
 	void testArraySet_addAll_atIndex() {
+		// integer test
+		ArraySet<Integer> test = new ArraySet<Integer>();
+		ArraySet<Integer> insert = new ArraySet<Integer>();
+		assertFalse(test.contains(1));
+		assertTrue(test.isEmpty());
+		
+		// populate test array with values 1-5
+		for (int i = 0; i < 6; i++)
+		{
+			test.add(i);
+		}
+		
+		// populate insert array with values 8-10 (outside of range) at end 
+		for (int j = 8; j < 11; j++)
+		{
+			insert.add(j);
+		}
+		
+		assertTrue(test.addAll(test.size() -1, insert));
+		assertEquals(9, test.size());
+		insert.clear();
+		
+		// populate insert array with values 6-7 at index 6 (middle)
+		for (int k = 6; k < 8; k++)
+		{
+			insert.add(k);
+		}
+		
+		assertTrue(test.addAll(6, insert));
+		assertEquals(11, test.size());
+		insert.clear();
+		
+		// populate insert array with values 0, 1 at beginning 
+		for (int l = 0; l < 2; l++)
+		{
+			insert.add(l);
+		}
+		
+		assertFalse(test.addAll(0, insert));
+		assertEquals(11, test.size());
+		insert.clear();
+		
+		// populate insert array with values 12, 13, 14 and add to beginning
+		for (int m = 12; m < 15; m++)
+		{
+			insert.add(m);
+		}
+		
+		assertTrue(test.addAll(0, insert));
+		assertEquals(14, test.size());
+		insert.clear();
+		
+		// populate insert array with values in the test array and values not in the test array
+		for (int n = 15; n < 20; n++)
+		{
+			insert.add(n);
+		}
+		
+		assertTrue(test.addAll(test.size()-1, insert));
+		assertEquals(19, test.size());
+		
+		// empty array
+		insert.clear();
+		assertFalse(test.addAll(0, insert));
 		
 		
+		
+		// double test
+				ArraySet<Double> test2 = new ArraySet<Double>();
+				ArraySet<Double> insert2 = new ArraySet<Double>();
+				assertFalse(test2.contains(1));
+				assertTrue(test2.isEmpty());
+				
+				// populate test array with values 0.1 1.1, 2.1, 3.1, 4.1, 5.1 
+				for (double i = 0.1; i < 6.1; i++)
+				{
+					test2.add(i);
+				}
+				
+				// populate insert array with values 8.1, 9.1, 10.1 (outside of range) at end 
+				for (double j = 8.1; j < 11.1; j++)
+				{
+					insert2.add(j);
+				}
+				
+				assertTrue(test2.addAll(test2.size() -1, insert2));
+				assertEquals(9, test2.size());
+				insert2.clear();
+				
+				// populate insert array with values 6.1, 7.1 at index 6 (middle)
+				for (double k = 6.1; k < 8; k++)
+				{
+					insert2.add(k);
+				}
+				
+				assertTrue(test2.addAll(6, insert2));
+				assertEquals(11, test2.size());
+				insert2.clear();
+				
+				// populate insert array with values 0, 1 at beginning 
+				for (double l = 0.1; l < 2; l++)
+				{
+					insert2.add(l);
+				}
+				
+				assertFalse(test2.addAll(0, insert2));
+				assertEquals(11, test2.size());
+				insert2.clear();
+				
+				// populate insert array with values 12.1, 13.1, 14 and add to beginning
+				for (double m = 12.1 ; m < 15; m++)
+				{
+					insert2.add(m);
+				}
+				
+				assertTrue(test2.addAll(0, insert2));
+				assertEquals(14, test2.size());
+				insert2.clear();
+				
+				// populate insert array with values in the test array and values not in the test array
+				for (double n = 15.1; n < 20; n++)
+				{
+					insert2.add(n);
+				}
+				
+				assertTrue(test2.addAll(test2.size()-1, insert2));
+				assertEquals(19, test2.size());
+				
+				// empty array
+				insert2.clear();
+				assertFalse(test2.addAll(0, insert2));
 		
 	}
+	
 	
 }
 
