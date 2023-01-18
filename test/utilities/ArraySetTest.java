@@ -242,7 +242,89 @@ class ArraySetTest
 	
 	@Test
 	void testArraySet_addAll() {
+		// integer type
+		ArraySet<Integer> test = new ArraySet<Integer>();
+		ArraySet<Integer> insert = new ArraySet<Integer>();
+		assertFalse(test.contains(1));
+		assertTrue(test.isEmpty());
 		
+		// populate test array with values 0, 1, 2, 3, 4, 5
+		for (int i = 0; i < 6; i++)
+		{
+			test.add(i);
+		}
+		
+		// populate sub array with values not in set: 8, 9, 10, 11
+		for (int j = 8; j < 12; j++)
+		{
+			insert.add(j);
+		}
+		
+		assertTrue(test.addAll(insert));
+		insert.clear();
+		
+		// populate sub array with some values in the set and some not: 10, 11, 12, 13
+		for (int k = 10; k < 14; k++)
+		{
+			insert.add(k);
+		}
+		assertTrue(test.addAll(insert));
+		insert.clear();
+		
+		// populate sub array with values in the set: 2, 3, 4, 5
+		for (int l = 2; l < 6; l++)
+		{
+			insert.add(l);
+		}
+		assertFalse(test.addAll(insert));
+		insert.clear();
+		
+		// empty array
+		assertFalse(test.addAll(insert));
+		
+		
+		
+		
+		
+		// double type
+		ArraySet<Double> test2 = new ArraySet<Double>();
+		ArraySet<Double> insert2 = new ArraySet<Double>();
+		assertFalse(test2.contains(1.0));
+		assertTrue(test2.isEmpty());
+				
+		// populate test array with values 0.1, 1.1, 2.1, 3.1, 4.1, 5.1
+		for (double m = 0.1; m < 6.1; m++)
+		{
+			test2.add(m);
+		}
+				
+		// populate sub array with values not in set: 8.5, 9.5, 10.5, 11.5
+		for (double n = 8.5; n < 12.5; n++)
+		{
+			insert2.add(n);
+		}
+				
+		assertTrue(test2.addAll(insert2));
+		insert2.clear();
+				
+		// populate sub array with some values in the set and some not: 10.5, 11.5, 12.5, 13.5
+		for (double o = 10.5; o < 14.5; o++)
+		{
+			insert2.add(o);
+		}
+		assertTrue(test2.addAll(insert2));
+		insert2.clear();
+				
+		// populate sub array with values in the set: 2.1, 3.1, 4.1, 5.1
+		for (double p = 2.1; p < 6.1; p++)
+		{
+			insert2.add(p);
+		}
+		assertFalse(test2.addAll(insert2));
+		insert2.clear();
+				
+		// empty array
+		assertFalse(test2.addAll(insert2));
 		
 		
 	}
