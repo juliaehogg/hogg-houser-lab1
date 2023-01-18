@@ -10,7 +10,7 @@ class ArraySetTest
 {
 	
 	@Test
-	void testArraySet_size()		// done 
+	void testArraySet_size()
 	{
 		// INTEGER TEST 
 		ArraySet<Integer> two = new ArraySet<Integer>();
@@ -97,7 +97,7 @@ class ArraySetTest
 	@Test
 	void testArraySet_add_element()
 	{
-		//Integer type
+		// INTEGER TEST
 		ArraySet<Integer> test = new ArraySet<Integer>();
 		assertFalse(test.contains(1));
 				
@@ -126,7 +126,7 @@ class ArraySetTest
 		
 
 		
-		// double type
+		// DOUBLE TEST
 		ArraySet<Double> test2 = new ArraySet<Double>();
 		assertFalse(test2.contains(1.1));
 		
@@ -161,7 +161,7 @@ class ArraySetTest
 	
 	@Test
 	void testArraySet_add_elementAtIndex() {
-		// integer type
+		// INTEGER TEST
 		ArraySet<Integer> test = new ArraySet<Integer>();
 		assertFalse(test.contains(1));
 				
@@ -193,7 +193,7 @@ class ArraySetTest
 		assertFalse(test.contains(6));
 		
 		
-		// double type
+		// DOUBLE TEST
 		ArraySet<Double> test2 = new ArraySet<Double>();
 		assertFalse(test2.contains(1.1));
 				
@@ -232,7 +232,7 @@ class ArraySetTest
 	
 	@Test
 	void testArraySet_addAll() {
-		// integer type
+		// INTEGER TEST
 		ArraySet<Integer> test = new ArraySet<Integer>();
 		ArraySet<Integer> insert = new ArraySet<Integer>();
 		assertFalse(test.contains(1));
@@ -276,7 +276,7 @@ class ArraySetTest
 		
 		
 		
-		// double type
+		// DOUBLE TEST
 		ArraySet<Double> test2 = new ArraySet<Double>();
 		ArraySet<Double> insert2 = new ArraySet<Double>();
 		assertFalse(test2.contains(1.0));
