@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.Dictionary;
 
 import org.junit.jupiter.api.Test;
 
@@ -127,7 +131,42 @@ class ParallelArrayDictionaryTest
 	@Test
 	void ParallelArrayDictionary_putAll()
 	{
-		// here 
+		// putAll with an empty dictionary and empty hashtable 
+		ParallelArrayDictionary<Integer, Double> one = new ParallelArrayDictionary<Integer, Double>();
+		Hashtable<Integer, Double> m = new Hashtable<Integer, Double>();
+		
+		one.putAll(m);
+		assertEquals(0, one.size());
+		
+		// putAll with an empty dictionary and non-empty hashtable
+		double dub = 12.03;
+		for (int i=0; i<10; i++) {
+			m.put(i, dub+i);
+		}
+		one.putAll(m);
+		assertEquals(10, one.size());
+		
+		// putAll with an empty dictionary and non-empty hashtable
+		m.clear();
+		dub = 5.5;
+		for (int i=0; i<10; i++) {
+			m.put(i, dub+i);
+		}
+		one.putAll(m);
+		assertEquals(10, one.size());
+		
+		m.clear();
+		dub = 8.01234;
+		for (int i=10; i<20; i++) {
+			m.put(i, dub+i);
+		}
+		one.putAll(m);
+		assertEquals(20, one.size());
+		
+		// putAll after clearing the dictionary 
+		one.clear();
+		one.putAll(m);
+		assertEquals(10, one.size());
 	}
 	
 	
@@ -180,31 +219,81 @@ class ParallelArrayDictionaryTest
 	@Test
 	void ParallelArrayDictionary_keySet()
 	{
-		// here 
+		// empty dictionary - returns an empty list
+		ParallelArrayDictionary<Integer, Double> one = new ParallelArrayDictionary<Integer, Double>();
+		assertEquals(Arrays.asList(), one.keySet());
+		
+		// add keys - returns correct key set
+		double dub = 100.0;
+		for (int i=0; i<15; i++) {
+			assertEquals(dub, one.put(i, dub));
+		}
+		assertEquals(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14), one.keySet());
+		
+		// non-empty dictionary - return a non-empty list
+		ParallelArrayDictionary<Integer, Double> two = 
+				new ParallelArrayDictionary<Integer, Double>
+				(new ArraySet<Integer>(new ArrayList<Integer>
+				(Arrays.asList(1, 2, 3))), new ArrayList<Double>
+				(Arrays.asList(1.1, 2.2, 3.3)));
+		assertEquals(Arrays.asList(1,2,3), two.keySet());
+		
+		// clear dictionary - returns an empty list
+		two.clear();
+		assertEquals(Arrays.asList(), two.keySet());
 	}
 	
 	@Test
 	void ParallelArrayDictionary_values()
 	{
-		// here 
+		// INTEGER TEST
+		// empty dictionary - returns an empty list
+		ParallelArrayDictionary<Integer, Integer> one = new ParallelArrayDictionary<Integer, Integer>();
+		assertEquals(Arrays.asList(), one.values());
+
+		// add values - returns correct value set
+		for (int i=0; i<15; i++) {
+			assertEquals(i+1, one.put(i, i+1));
+		}
+		assertEquals(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15), one.values());
+
+		// non-empty dictionary - return a non-empty list
+		ParallelArrayDictionary<Integer, Integer> two = 
+				new ParallelArrayDictionary<Integer, Integer>
+		(new ArraySet<Integer>(new ArrayList<Integer>
+		(Arrays.asList(1, 2, 3))), new ArrayList<Integer>
+		(Arrays.asList(4, 5, 6)));
+		assertEquals(Arrays.asList(4, 5, 6), two.values());
+
+		// clear dictionary - returns an empty list
+		two.clear();
+		assertEquals(Arrays.asList(), two.values());
+
+		
+		// DOUBLE TEST
+		// empty dictionary - returns an empty list
+		ParallelArrayDictionary<Integer, Double> three = new ParallelArrayDictionary<Integer, Double>();
+		assertEquals(Arrays.asList(), three.values());
+		
+		// add values - returns correct value set
+		double dub = 100.2;
+		for (int i=0; i<15; i++) {
+			assertEquals(dub, three.put(i, dub));
+		}
+		assertEquals(Arrays.asList(100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2,100.2), three.values());
+		
+		// non-empty dictionary - return a non-empty list
+		ParallelArrayDictionary<Integer, Double> four = 
+				new ParallelArrayDictionary<Integer, Double>
+		(new ArraySet<Integer>(new ArrayList<Integer>
+		(Arrays.asList(1, 2, 3))), new ArrayList<Double>
+		(Arrays.asList(1.1, 2.2, 3.3)));
+		assertEquals(Arrays.asList(1.1,2.2,3.3), four.values());
+
+		// clear dictionary - returns an empty list
+		four.clear();
+		assertEquals(Arrays.asList(), four.values());
 	}
 	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

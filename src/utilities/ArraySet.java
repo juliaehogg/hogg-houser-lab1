@@ -1,3 +1,11 @@
+/**
+* ArraySet.java is a class that can create an generic ArraySet object. An ArraySet works like an ArrayList; however,
+* since sets do not contain repeated items, ArraySet will not allow for repeated items.
+*
+* @author Grace Houser and Julia Hogg
+* @date Wednesday, January 18th, 2023
+*/
+
 package utilities;
 
 import java.util.ArrayList;

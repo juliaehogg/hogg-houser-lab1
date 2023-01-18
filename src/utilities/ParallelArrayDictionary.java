@@ -1,3 +1,11 @@
+/**
+* ParallelArrayDictionary.java is a class that can create an generic Parallel Array Dictionary object. With this
+* object, keys are held in an ArraySet and values are held in an ArrayList.
+*
+* @author Grace Houser and Julia Hogg
+* @date Wednesday, January 18th, 2023
+*/
+
 package utilities;
 
 import static org.junit.Assert.assertEquals;
@@ -76,7 +84,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
 		for (Entry<? extends Key, ? extends Value> e: m.entrySet()) { 
-			put(e.getKey(), e.getValue());
+			this.put(e.getKey(), e.getValue());
 		}
 	}
 
