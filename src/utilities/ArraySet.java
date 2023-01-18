@@ -77,7 +77,7 @@ protected ArrayList<E> _list;
 		if (c.isEmpty()) return false;
 		if (_list.containsAll(c)) return false;
 		
-		int i = index;
+		int i = 0;
 		for (E element : c) {
 			_list.add(index + i, element);
 			i++;

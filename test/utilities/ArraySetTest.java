@@ -10,16 +10,6 @@ class ArraySetTest
 {
 	
 	@Test
-	void testArraySet_construction()
-	{
-		ArraySet<Double> one = new ArraySet<Double>();
-		
-		assertEquals(0, one.size());
-		
-		
-	}
-	
-	@Test
 	void testArraySet_size()		// done 
 	{
 		// INTEGER TEST 

@@ -52,6 +52,7 @@ public class ParallelArrayDictionary <Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Value get(Object key) {
+		if (!_keys.contains(key)) return null;
 		return _values.get(_keys.indexOf(key));
 	}
 
